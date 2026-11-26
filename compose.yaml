@@ -1,0 +1,14 @@
+# Optional standalone Docker Compose deployment. Coolify Dockerfile deployment is recommended.
+services:
+  waqt:
+    build: .
+    env_file: .env
+    restart: unless-stopped
+    cpus: 1.0
+    mem_limit: 512m
+    volumes:
+      - waqt-data:/data
+    ports:
+      - '127.0.0.1:8080:8080'
+volumes:
+  waqt-data:
